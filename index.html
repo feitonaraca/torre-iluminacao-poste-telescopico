@@ -1,4 +1,422 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Carrinho de Ferramentas – Feito na Raça</title>
+
+  <!-- ESTILO BÁSICO – CORES OFICIAIS FNR -->
+  <style>
+    :root {
+      --laranja: #F25C05;
+      --preto: #1C1C1C;
+      --cinza: #555555;
+      --amarelo: #FFD700;
+      --bg-claro: #f7f7f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: var(--preto);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--laranja);
+      color: #ffffff;
+      padding: 32px 16px 40px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .hero-tag {
+      font-size: 0.9rem;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    .hero-highlight {
+      margin-top: 18px;
+      font-size: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-highlight strong {
+      color: var(--amarelo);
+    }
+
+    /* SEÇÕES */
+    .section {
+      padding: 32px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .section h2 {
+      color: var(--laranja);
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      color: var(--cinza);
+      max-width: 900px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 12px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--preto);
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .card ul li {
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+      color: var(--cinza);
+    }
+
+    .card ul li::before {
+      content: "✔ ";
+      color: var(--laranja);
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--preto);
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .badge-yellow {
+      background: var(--amarelo);
+      color: var(--preto);
+    }
+
+    .badge-outline {
+      border: 1px solid var(--laranja);
+      background: transparent;
+      color: var(--laranja);
+    }
+
+    /* GAVETAS */
+    .gavetas-box {
+      background: var(--bg-claro);
+      border-radius: 8px;
+      padding: 18px;
+      border-left: 4px solid var(--laranja);
+      margin-top: 12px;
+    }
+
+    .gavetas-box h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--preto);
+    }
+
+    .gavetas-box p {
+      font-size: 0.94rem;
+      color: var(--cinza);
+    }
+
+    /* PROVA SOCIAL / AUTORIDADE */
+    .social-proof {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px;
+      border: 1px dashed #dddddd;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--cinza);
+    }
+
+    .social-proof strong {
+      color: var(--preto);
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 32px 0 16px;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--preto);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--amarelo);
+      color: var(--preto);
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-button:hover {
+      filter: brightness(0.95);
+    }
+
+    .cta-note {
+      font-size: 0.82rem;
+      margin-top: 10px;
+      color: var(--cinza);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--cinza);
+      padding: 18px 0 8px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      .hero-highlight {
+        font-size: 0.95rem;
+      }
+      .section {
+        padding: 24px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrapper">
+      <div class="hero-title">PROJETO – Carrinho de Ferramentas</div>
+      <div class="hero-subtitle">Projeto digital oficial da oficina Feito na Raça ⚙️</div>
+      <div class="hero-tag">Para quem quer construir um carrinho de verdade, e não só um desenho bonito no papel.</div>
+
+      <p class="hero-highlight">
+        <strong>Construa seu próprio carrinho de ferramentas profissional</strong>, com gavetas funcionais e estrutura reforçada,
+        mesmo sem dobradeira de chapas e sem perder dinheiro comprando material errado.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrapper">
+
+    <!-- BLOCO: O QUE VOCÊ RECEBE (VISÃO GERAL) -->
+    <section class="section" id="pacote-completo">
+      <h2>O que você recebe ao comprar o projeto</h2>
+      <p>
+        Não é só um desenho com meia dúzia de medidas. É um pacote completo pensado para quem quer sair da ideia e colocar um
+        carrinho de ferramentas útil para trabalhar na oficina.
+      </p>
+
+      <div class="columns" style="margin-top:16px;">
+        <div class="card">
+          <span class="badge">PDF Premium</span>
+          <h3>Projeto completo em PDF</h3>
+          <ul>
+            <li>Lista de materiais completa (metalon, chapa, rodízios, ferragens principais)</li>
+            <li>Plano de corte organizado para chapa e metalon</li>
+            <li>Desenhos técnicos da estrutura do carrinho</li>
+            <li>Desenhos técnicos das gavetas com medidas e cortes</li>
+            <li>Medidas detalhadas do carrinho e das gavetas</li>
+            <li>Orientações de montagem e observações de ajuste</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-yellow">Vídeos explicativos</span>
+          <h3>Passo a passo em vídeo</h3>
+          <ul>
+            <li>Explicação da lógica do projeto e da estrutura</li>
+            <li>Detalhamento da montagem das gavetas</li>
+            <li>Sequência de cortes e montagem da chapa</li>
+            <li>Sequência de soldagem do carrinho</li>
+            <li>Comentário dos pontos críticos para evitar erro</li>
+            <li>Dicas práticas direto da oficina, sem enrolação</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-outline">Bônus (100 primeiros)</span>
+          <h3>Extras para acelerar seu resultado</h3>
+          <ul>
+            <li>Grupo VIP com acesso por 45 dias para tirar dúvidas</li>
+            <li>Vídeos complementares exclusivos com testes e detalhes extras</li>
+            <li>Suporte básico em dúvidas técnicas sobre o projeto</li>
+            <li>Bônus liberados após o período de garantia, para quem realmente ficou com o projeto</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO: GAVETAS SEM DOBRADEIRA -->
+    <section class="section" id="gavetas">
+      <h2>Gavetas completas, mesmo sem dobradeira de chapas</h2>
+      <div class="gavetas-box">
+        <h3>Você não precisa ter uma dobradeira industrial</h3>
+        <p>
+          As gavetas do projeto foram pensadas para quem trabalha na vida real: <strong>foram feitas em chapa 20,
+          com dobras e cortes simples</strong>, sem depender de dobradeira grande de fábrica.
+        </p>
+        <p style="margin-top:8px;">
+          No PDF você tem os desenhos e medidas exatas dos cortes e das dobras. Nos vídeos eu explico o processo de montagem,
+          mostrando como chegar ao resultado final usando recursos de oficina, sem equipamento sofisticado.
+        </p>
+        <p style="margin-top:8px;">
+          Resultado: gavetas alinhadas, funcionais e com puxadores integrados, sem você ter que investir em mais uma máquina cara
+          só para esse projeto.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCO: POR QUE ESSE PROJETO É DIFERENTE -->
+    <section class="section" id="diferenciais">
+      <h2>Por que esse projeto é diferente dos PDFs soltos na internet</h2>
+
+      <div class="columns">
+        <div class="card">
+          <h3>Feito na oficina, não no Photoshop</h3>
+          <ul>
+            <li>É o projeto do carrinho que eu realmente uso no dia a dia</li>
+            <li>Todas as medidas foram testadas na prática, com peso e uso real</li>
+            <li>Não é desenho genérico adaptado de catálogo</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pensado para aproveitar material</h3>
+          <ul>
+            <li>Plano de corte pensado para reduzir desperdício</li>
+            <li>Lista de materiais para você comprar certo e não sobrar peça cara parada</li>
+            <li>Observações para adaptação, caso você tenha sucata ou medidas diferentes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Você não fica sozinho com o PDF</h3>
+          <ul>
+            <li>Vídeos explicando o raciocínio do projeto</li>
+            <li>Bônus com grupo VIP por tempo limitado</li>
+            <li>Suporte básico em dúvidas técnicas dentro do período combinado</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-proof">
+        <strong>Prova social de verdade:</strong><br>
+        Quem acompanha o Feito na Raça já viu esse carrinho aparecendo nos vídeos da oficina, tomando pancada, recebendo peso e
+        sendo usado no dia a dia. O projeto nasceu da necessidade real de organizar a oficina, não de vender PDF. Agora ele foi
+        organizado e refinado para virar um produto digital que qualquer pessoa consegue seguir.
+      </div>
+    </section>
+
+    <!-- BLOCO: PARA QUEM É -->
+    <section class="section" id="para-quem">
+      <h2>Para quem é esse projeto</h2>
+      <div class="columns">
+        <div class="card">
+          <h3>É para você se…</h3>
+          <ul>
+            <li>Quer um carrinho de ferramentas forte e funcional na sua oficina</li>
+            <li>Já tem alguma noção de corte e solda ou está disposto a aprender</li>
+            <li>Quer economizar tempo e material tendo um plano já testado</li>
+            <li>Gosta de construir seus próprios projetos “feito na raça”</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Não é para você se…</h3>
+          <ul>
+            <li>Está procurando um móvel pronto, só para comprar e usar</li>
+            <li>Não pretende colocar a mão na massa em nenhum momento</li>
+            <li>Quer um curso completo de serralheria do zero (não é isso)</li>
+            <li>Acha que o PDF sozinho vai fazer o trabalho por você</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section" id="cta">
+      <p class="cta-text">
+        Se você quer um carrinho de ferramentas que realmente aguenta trabalho, com projeto testado e explicado em detalhes,
+        o próximo passo é seu.
+      </p>
+
+      <!-- TROQUE O LINK ABAIXO PELO LINK DO CHECKOUT DA KIWIFY -->
+      <a class="cta-button" href="https://pay.kiwify.com.br/bh98j93" target="_blank" rel="noopener noreferrer">
+        Comprar agora o projeto
+      </a>
+
+      <p class="cta-note">
+        Acesso imediato ao PDF premium + vídeos explicativos.<br>
+        Bônus liberados depois do período de garantia, apenas para quem permanece com o projeto.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Feito na Raça © 2025 • Projeto digital do carrinho de ferramentas usado na oficina
+  </footer>
+</body>
+</html><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
