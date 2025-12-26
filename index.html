@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guia Prático – Torre de Iluminação com Poste Telescópico (Gigante e Compacto) – Feito na Raça</title>
+  <title>Guia Prático – Torre de Iluminação | Feito na Raça</title>
 
   <style>
     :root {
@@ -12,7 +12,6 @@
       --cinza: #555555;
       --amarelo: #FFD700;
       --bg-claro: #f7f7f7;
-      --borda: #e5e5e5;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,125 +23,113 @@
       line-height: 1.6;
     }
 
-    a { text-decoration: none; color: inherit; }
-
     .wrapper {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 16px 40px;
+      padding: 0 16px 48px;
+    }
+
+    /* TOPO */
+    .topbar {
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .topbar img {
+      max-width: 140px;
     }
 
     /* HERO */
     .hero {
       background: var(--laranja);
       color: #ffffff;
-      padding: 26px 16px 40px;
+      padding: 36px 16px 44px;
       text-align: center;
     }
 
-    .hero-logo {
-      display: inline-flex;
-      align-items: center;
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .hero h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    .hero p strong {
+      color: var(--amarelo);
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
       justify-content: center;
-      margin-bottom: 12px;
+      flex-wrap: wrap;
     }
 
-    .hero-logo img {
-      width: 140px;
-      height: auto;
-      display: block;
-    }
-
-    .hero-title {
-      font-size: 1.9rem;
+    .btn-primary {
+      background: var(--amarelo);
+      color: var(--preto);
+      padding: 14px 28px;
+      border-radius: 6px;
       font-weight: 700;
-      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    .hero-subtitle {
-      font-size: 1rem;
-      opacity: 0.92;
-      margin-bottom: 10px;
+    .btn-outline {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-weight: 700;
     }
-
-    .hero-tag {
-      font-size: 0.95rem;
-      margin-top: 4px;
-      opacity: 0.92;
-      max-width: 880px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-highlight {
-      margin-top: 16px;
-      font-size: 1rem;
-      max-width: 780px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-highlight strong { color: var(--amarelo); }
 
     /* SEÇÕES */
     .section {
-      padding: 32px 0;
+      padding: 36px 0;
       border-bottom: 1px solid #eeeeee;
     }
 
-    .section h2 {
+    .section h3 {
       color: var(--laranja);
-      font-size: 1.3rem;
-      margin-bottom: 12px;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
     }
 
     .section p {
-      font-size: 0.95rem;
       color: var(--cinza);
-      max-width: 920px;
+      max-width: 900px;
+      font-size: 0.95rem;
     }
 
     .columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      margin-top: 12px;
+      margin-top: 18px;
     }
 
     .card {
       background: #ffffff;
       border-radius: 8px;
       padding: 18px;
-      border: 1px solid var(--borda);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      color: var(--preto);
-    }
-
-    .card ul {
-      list-style: none;
-      margin-top: 6px;
-    }
-
-    .card ul li {
-      font-size: 0.92rem;
-      margin-bottom: 4px;
-      color: var(--cinza);
-    }
-
-    .card ul li::before {
-      content: "✔ ";
-      color: var(--laranja);
-      font-weight: bold;
+      border: 1px solid #e5e5e5;
     }
 
     .badge {
       display: inline-block;
-      font-size: 0.78rem;
-      padding: 2px 8px;
+      font-size: 0.75rem;
+      padding: 3px 10px;
       border-radius: 999px;
       background: var(--preto);
       color: #ffffff;
@@ -160,314 +147,151 @@
       color: var(--laranja);
     }
 
-    /* BOX DESTAQUE */
-    .box {
-      background: var(--bg-claro);
-      border-radius: 8px;
-      padding: 18px;
-      border-left: 4px solid var(--laranja);
-      margin-top: 12px;
-    }
-
-    .box h3 {
+    .card h4 {
       font-size: 1.05rem;
       margin-bottom: 6px;
-      color: var(--preto);
     }
 
-    .box p {
-      font-size: 0.94rem;
+    .card ul {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .card ul li {
+      font-size: 0.92rem;
       color: var(--cinza);
+      margin-bottom: 5px;
     }
 
-    /* BLOCO TRACEJADO */
-    .note {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 18px;
-      border: 1px dashed #dddddd;
-      margin-top: 12px;
-      font-size: 0.95rem;
-      color: var(--cinza);
-    }
-
-    .note strong { color: var(--preto); }
-
-    .link {
+    .card ul li::before {
+      content: "✔ ";
       color: var(--laranja);
-      text-decoration: underline;
-      font-weight: 700;
+      font-weight: bold;
     }
 
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      padding: 32px 0 16px;
+    /* BLOCO REGIONAL */
+    .regional {
+      background: var(--bg-claro);
+      border-left: 4px solid var(--laranja);
+      padding: 18px;
+      border-radius: 6px;
+      margin-top: 16px;
     }
 
-    .cta-text {
-      font-size: 1rem;
-      margin-bottom: 16px;
+    .regional strong {
       color: var(--preto);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    .cta-button {
+    /* CTA FINAL */
+    .cta {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    .cta a {
       display: inline-block;
       background: var(--amarelo);
       color: var(--preto);
-      padding: 14px 32px;
+      padding: 16px 36px;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
     }
 
-    .cta-button:hover { filter: brightness(0.95); }
-
-    .cta-note {
-      font-size: 0.82rem;
-      margin-top: 10px;
+    .cta p {
+      font-size: 0.85rem;
       color: var(--cinza);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 10px;
     }
 
     footer {
       text-align: center;
       font-size: 0.8rem;
       color: var(--cinza);
-      padding: 18px 0 8px;
-    }
-
-    @media (max-width: 768px) {
-      .hero-title { font-size: 1.6rem; }
-      .hero-highlight { font-size: 0.95rem; }
-      .section { padding: 24px 0; }
-      .hero-logo img { width: 130px; }
+      padding-top: 20px;
     }
   </style>
 </head>
 
 <body>
-  <!-- HERO -->
+
+  <div class="topbar">
+    <img src="logo-fnr.png" alt="Feito na Raça">
+  </div>
+
   <header class="hero">
-    <div class="wrapper">
-      <div class="hero-logo">
-        <img src="logo-fnr.png" alt="Feito na Raça">
-      </div>
+    <h1>Torre de Iluminação com Poste Telescópico</h1>
+    <h2>Gigante e Compacto</h2>
 
-      <div class="hero-title">Torre de Iluminação com Poste Telescópico</div>
-      <div class="hero-subtitle">Gigante e Compacto</div>
+    <p>
+      Entenda o sistema. <strong>Viabilize a execução.</strong><br>
+      O vídeo mostra como funciona.  
+      O Guia Prático organiza as informações para executar com segurança.
+    </p>
 
-      <div class="hero-tag">
-        O vídeo mostra como o sistema funciona. O Guia Prático organiza as informações para viabilizar a execução,
-        por você ou por um serralheiro de confiança.
-      </div>
-
-      <p class="hero-highlight">
-        <strong>Entenda o sistema. Viabilize a execução.</strong><br>
-        A peça não é vendida pronta. Este material existe para viabilizar a execução local.
-      </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://pay.kiwify.com.br/AxirpDX" target="_blank">ADQUIRIR O GUIA PRÁTICO</a>
+      <a class="btn-outline" href="https://youtu.be/EgzkWpj4hFo" target="_blank">VER VÍDEO: PROCESSO</a>
     </div>
   </header>
 
   <main class="wrapper">
 
-    <!-- BLOCO: LINKS / CONTEXTO -->
-    <section class="section" id="videos">
-      <h2>Vídeos no YouTube</h2>
-      <p>
-        Dois vídeos, dois objetivos: um mostra o processo na prática. O outro entra para explicar a lógica do sistema e os pontos críticos.
-      </p>
+    <section class="section">
+      <h3>O que você recebe</h3>
 
-      <div class="columns" style="margin-top:16px;">
-        <div class="card">
-          <span class="badge badge-yellow">Vídeo</span>
-          <h3>Processo (já disponível)</h3>
-          <ul>
-            <li>Construção e funcionamento na prática</li>
-            <li>Visão geral do sistema</li>
-            <li>Conteúdo gratuito no YouTube</li>
-          </ul>
-          <p style="margin-top:10px;">
-            <a class="link" href="https://youtu.be/EgzkWpj4hFo?si=bAEZZ9FJgo2aNFKP" target="_blank" rel="noopener noreferrer">
-              Assistir no YouTube
-            </a>
-          </p>
-        </div>
-
-        <div class="card">
-          <span class="badge">Vídeo</span>
-          <h3>Lógica do sistema e pontos críticos</h3>
-          <ul>
-            <li>Explica os pontos que mais geram dúvida</li>
-            <li>Sem virar tutorial longo</li>
-            <li>Status: em produção</li>
-          </ul>
-          <p style="margin-top:10px; color: var(--cinza); font-size:0.92rem;">
-            <strong>Em breve no YouTube.</strong>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOCO: O QUE VOCÊ RECEBE -->
-    <section class="section" id="conteudo">
-      <h2>O que você recebe no Guia Prático</h2>
-      <p>
-        O objetivo é reduzir tentativa e erro e facilitar a execução local — por você ou por um serralheiro de confiança.
-      </p>
-
-      <div class="columns" style="margin-top:16px;">
+      <div class="columns">
         <div class="card">
           <span class="badge">PDF</span>
-          <h3>Lista e plano</h3>
+          <h4>Guia Prático organizado</h4>
           <ul>
-            <li>Lista de materiais completa e organizada</li>
+            <li>Lista de materiais</li>
             <li>Plano de corte otimizado</li>
-            <li>Registro do processo aplicado na execução real</li>
+            <li>Desenhos da base</li>
+            <li>Suporte das roldanas</li>
+            <li>Registro do processo real</li>
           </ul>
         </div>
 
         <div class="card">
-          <span class="badge badge-yellow">Desenhos</span>
-          <h3>Base e suporte das roldanas</h3>
+          <span class="badge badge-yellow">Vídeos</span>
+          <h4>Conteúdo visual complementar</h4>
           <ul>
-            <li>Desenhos da base</li>
-            <li>Desenhos do suporte das roldanas</li>
-            <li>Referência clara para fabricação</li>
+            <li>Processo de construção</li>
+            <li>Lógica do sistema (em breve)</li>
+            <li>Pontos críticos explicados</li>
           </ul>
         </div>
 
         <div class="card">
           <span class="badge badge-outline">Links</span>
-          <h3>Itens utilizados</h3>
+          <h4>Itens utilizados</h4>
           <ul>
-            <li>Links dos itens comprados</li>
-            <li>Ferramentas e consumíveis usados</li>
-            <li>Referências para facilitar sua compra</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOCO: VÍDEO x GUIA -->
-    <section class="section" id="video-guia">
-      <h2>Vídeo e Guia Prático</h2>
-      <div class="columns">
-        <div class="card">
-          <h3>Vídeo</h3>
-          <ul>
-            <li>Mostra a lógica e o funcionamento</li>
-            <li>Ajuda a entender o “porquê”</li>
-            <li>Conteúdo gratuito</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Guia Prático (PDF)</h3>
-          <ul>
-            <li>Organiza o que você precisa para executar</li>
-            <li>Evita compra errada e retrabalho</li>
-            <li>Ajuda a levar para um serralheiro de confiança</li>
+            <li>Referências reais</li>
+            <li>Compras testadas</li>
+            <li>Sem achismo</li>
           </ul>
         </div>
       </div>
 
-      <div class="box">
-        <h3>Viabilização (pra quem não é da área)</h3>
-        <p>
-          Se você precisa de uma peça como essa e não faz serralheria,
-          o caminho mais inteligente é: <strong>assiste ao vídeo, pega o Guia Prático e leva a um serralheiro de confiança</strong>.
-          Você viabiliza o seu projeto e fortalece o serviço local.
-        </p>
+      <div class="regional">
+        <strong>Execução local:</strong><br>
+        Para quem é do <strong>Rio Grande do Norte</strong> ou estados vizinhos, este e outros projetos podem ser executados diretamente por mim, conforme análise de viabilidade.  
+        <br><br>
+        👉 O contato é feito de forma direta pelo <strong>Instagram do Feito na Raça</strong>.
       </div>
     </section>
 
-    <!-- BLOCO: PARA QUEM É -->
-    <section class="section" id="para-quem">
-      <h2>Para quem é (e para quem não é)</h2>
-      <div class="columns">
-        <div class="card">
-          <h3>É para você se…</h3>
-          <ul>
-            <li>Quer viabilizar a execução com clareza</li>
-            <li>Vai executar ou contratar profissional local</li>
-            <li>Quer reduzir tentativa e erro</li>
-            <li>Prefere informação organizada</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Não é para você se…</h3>
-          <ul>
-            <li>Quer norma técnica ou validação profissional</li>
-            <li>Espera garantia de resultado</li>
-            <li>Quer um manual completo do zero</li>
-            <li>Não assume responsabilidade pela execução</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOCO: EXECUÇÃO REGIONAL -->
-    <section class="section" id="execucao-regional">
-      <h2>Execução regional</h2>
-
-      <div class="box">
-        <h3>Rio Grande do Norte e estados vizinhos</h3>
-        <p>
-          Se você está no <strong>Rio Grande do Norte ou em estados vizinhos</strong>, existe a possibilidade de execução e entrega de peças prontas.
-        </p>
-        <p style="margin-top:8px;">
-          Isso vale para este projeto e para outros trabalhos semelhantes.
-          <strong>O contato é feito de forma direta via
-            <a class="link" href="https://instagram.com/feitonaraca" target="_blank" rel="noopener noreferrer">Instagram</a>.
-          </strong>
-        </p>
-      </div>
-    </section>
-
-    <!-- BLOCO: AVISO IMPORTANTE -->
-    <section class="section" id="aviso">
-      <h2>Aviso importante</h2>
-      <div class="note">
-        <strong>Leitura rápida e honesta:</strong><br>
-        Este material apresenta como a execução foi feita <strong>neste caso específico</strong>.<br><br>
-        Não é norma técnica, não é manual profissional e não substitui acompanhamento especializado.<br><br>
-        Qualquer reprodução, adaptação ou uso das informações aqui contidas é de responsabilidade exclusiva de quem executa.<br><br>
-        A contratação de terceiros é uma decisão pessoal, sem qualquer vínculo ou responsabilidade do autor.
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="cta-section" id="cta">
-      <p class="cta-text">
-        Se você quer viabilizar esse projeto com clareza — para executar você mesmo ou levar para um serralheiro de confiança —
-        o Guia Prático está pronto.
-      </p>
-
-      <a class="cta-button" href="https://pay.kiwify.com.br/AxirpDX" target="_blank" rel="noopener noreferrer">
-        Adquerir o Guia Prático
-      </a>
-
-      <p class="cta-note">
-        Preço acessível. Entrega digital.<br>
-        <strong>Organizado para não fazer na tentativa e erro.</strong><br>
-        Vídeo da lógica e pontos críticos: <strong>em breve no YouTube</strong>.
-      </p>
+    <section class="cta">
+      <a href="https://pay.kiwify.com.br/AxirpDX" target="_blank">ADQUIRIR O GUIA PRÁTICO</a>
+      <p>Download imediato • PDF organizado • Processo real</p>
     </section>
 
   </main>
 
   <footer>
-    Feito na Raça © 2025 • Guia prático baseado em execução real • Conteúdo digital de referência
+    Feito na Raça © 2025 • Projeto real, testado em oficina
   </footer>
+
 </body>
 </html>
-
