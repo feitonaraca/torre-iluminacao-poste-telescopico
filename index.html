@@ -3,283 +3,352 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Torre de Iluminação com Poste Telescópico – Guia Prático</title>
+  <title>Torre de Iluminação com Poste Telescópico (Gigante e Compacto) – Guia Prático</title>
 
   <style>
-    :root {
-      --laranja: #F25C05;
-      --preto: #1C1C1C;
-      --cinza: #555555;
-      --cinza-claro: #f5f5f5;
+    :root{
+      --orange:#F25C05;
+      --yellow:#FFD700;
+      --black:#1C1C1C;
+      --gray:#555555;
+      --bg:#ffffff;
+      --soft:#F6F6F6;
+      --card:#ffffff;
+      --line:#EAEAEA;
+      --shadow: 0 10px 28px rgba(0,0,0,.08);
+      --radius:16px;
+      --max:1100px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--black);
+      background:var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .hero{
+      background:var(--orange);
+      color:#fff;
+      padding:54px 0 48px;
+    }
+    .hero h1{
+      font-size: clamp(28px, 3.2vw, 44px);
+      letter-spacing:-.02em;
+      margin-bottom:10px;
+      font-weight:800;
+      text-align:center;
+    }
+    .hero h2{
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight:500;
+      opacity:.95;
+      text-align:center;
+      margin-bottom:22px;
+    }
+    .hero .sub{
+      max-width:860px;
+      margin:0 auto;
+      text-align:center;
+      font-size: clamp(16px, 1.55vw, 18px);
+      opacity:.98;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--preto);
-      background: #ffffff;
-      line-height: 1.6;
+    .hero .pillrow{
+      margin-top:22px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .pill{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      backdrop-filter: blur(6px);
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    .section{
+      padding:56px 0;
+      border-top:1px solid var(--line);
+    }
+    .section.alt{background:var(--soft)}
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      color:var(--gray);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .h3{
+      font-size: clamp(22px, 2.2vw, 30px);
+      letter-spacing:-.02em;
+      margin-bottom:14px;
+      font-weight:850;
+    }
+    .lead{
+      max-width:900px;
+      font-size:16px;
+      color:var(--black);
+    }
+    .muted{color:var(--gray)}
+    .sp10{height:10px}
+    .sp14{height:14px}
+    .sp18{height:18px}
+    .sp24{height:24px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+      margin-top:22px;
     }
 
-    header {
-      margin-bottom: 60px;
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px 18px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:800;
+      border-radius:999px;
+      padding:7px 11px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--black);
+      margin-bottom:12px;
+    }
+    .tag.orange{
+      background:rgba(242,92,5,.10);
+      border-color:rgba(242,92,5,.18);
+    }
+    .tag.yellow{
+      background:rgba(255,215,0,.18);
+      border-color:rgba(255,215,0,.22);
     }
 
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+    .card h4{
+      font-size:18px;
+      margin-bottom:10px;
+      font-weight:850;
+      letter-spacing:-.01em;
+    }
+    .list{
+      margin-top:10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding-left:0;
+      list-style:none;
+    }
+    .list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:var(--black);
+      font-size:14.5px;
+    }
+    .check{
+      width:18px;height:18px;flex:0 0 18px;
+      border-radius:5px;
+      background:rgba(242,92,5,.14);
+      border:1px solid rgba(242,92,5,.22);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:2px;
+      color:var(--orange);
+      font-weight:900;
+      font-size:13px;
     }
 
-    header h2 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      color: var(--cinza);
-      margin-bottom: 20px;
+    .note{
+      border-left:4px solid var(--orange);
+      padding:14px 16px;
+      background:#fff;
+      border-radius:12px;
+      border:1px solid var(--line);
+      box-shadow: 0 8px 22px rgba(0,0,0,.05);
+      max-width:920px;
+      margin:22px auto 0;
+    }
+    .note strong{font-weight:900}
+    .note p{margin:0;color:var(--black);font-size:14.5px}
+    .note .muted{display:block;margin-top:6px}
+
+    .legal{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .legal p{font-size:14.5px;color:var(--black)}
+    .legal p + p{margin-top:10px}
+
+    .ctaRow{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:900;
+      text-decoration:none;
+      border:1px solid transparent;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background:var(--orange);
+      color:#fff;
+      box-shadow: 0 14px 34px rgba(242,92,5,.25);
+    }
+    .btn.ghost{
+      background:#fff;
+      border-color:var(--line);
+      color:var(--black);
+    }
+    .fine{
+      font-size:12.5px;
+      color:var(--gray);
+      max-width:720px;
     }
 
-    header p {
-      max-width: 700px;
-      margin-bottom: 10px;
+    footer{
+      padding:34px 0 44px;
+      border-top:1px solid var(--line);
+      color:var(--gray);
+      font-size:14px;
+      background:#fff;
     }
+    footer strong{color:var(--black)}
 
-    header .note {
-      margin-top: 15px;
-      padding-left: 15px;
-      border-left: 3px solid var(--laranja);
-      color: var(--cinza);
-      font-size: 0.95rem;
-    }
-
-    section {
-      margin-bottom: 50px;
-    }
-
-    section h3 {
-      color: var(--laranja);
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-    }
-
-    section p {
-      max-width: 750px;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      margin-top: 10px;
-      margin-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 6px;
-    }
-
-    .columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .column {
-      flex: 1;
-      min-width: 260px;
-    }
-
-    .legal {
-      background: var(--cinza-claro);
-      padding: 20px;
-      font-size: 0.95rem;
-    }
-
-    .cta {
-      margin-top: 20px;
-      padding: 15px 25px;
-      background: var(--laranja);
-      color: #fff;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      color: var(--cinza);
-      font-size: 0.95rem;
+    @media (max-width: 900px){
+      .grid3{grid-template-columns: 1fr}
+      .grid2{grid-template-columns: 1fr}
+      .hero{padding:44px 0 40px}
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-
-    <header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
       <h1>Torre de Iluminação com Poste Telescópico</h1>
       <h2>Gigante e Compacto</h2>
 
-      <p><strong>Entenda o sistema. Viabilize a execução.</strong></p>
-
-      <p>
+      <p class="sub"><strong>Entenda o sistema. Viabilize a execução.</strong><br>
         O vídeo mostra como o sistema funciona.<br>
-        O Guia Prático organiza as informações para execução,
-        por você ou por um serralheiro de confiança.
+        O Guia Prático organiza as informações para execução, por você ou por um serralheiro de confiança.
       </p>
+
+      <div class="pillrow">
+        <div class="pill">Vídeo para entender</div>
+        <div class="pill">Guia Prático para executar</div>
+        <div class="pill">Execução local</div>
+      </div>
 
       <div class="note">
-        A peça não é vendida pronta.<br>
-        Este material existe para viabilizar a execução local.
+        <p><strong>A peça não é vendida pronta.</strong>
+          <span class="muted">Este material existe para viabilizar a execução local.</span>
+        </p>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section>
-      <h3>O sistema</h3>
-      <p>
-        Uma torre de iluminação com poste telescópico de grande porte,
-        que fica compacta quando recolhida.
-      </p>
-      <p>
+  <!-- O SISTEMA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Contexto</div>
+      <div class="h3">O sistema</div>
+      <p class="lead">
+        Uma torre de iluminação com poste telescópico de grande porte, que fica compacta quando recolhida.<br>
         O funcionamento completo do sistema pode ser visto no vídeo.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h3>Material digital</h3>
-      <p><strong>Guia Prático – Torre de Iluminação com Poste Telescópico (Gigante e Compacto)</strong></p>
-      <p>Este PDF organiza as informações usadas na execução.</p>
+  <!-- O QUE VOCÊ RECEBE -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">Conteúdo</div>
+      <div class="h3">O que você recebe</div>
+      <p class="lead muted">
+        <strong>Guia Prático – Torre de Iluminação com Poste Telescópico (Gigante e Compacto)</strong><br>
+        Este PDF organiza as informações usadas na execução.
+      </p>
 
-      <ul>
-        <li>Lista de materiais</li>
-        <li>Plano de corte otimizado</li>
-        <li>Desenhos da base</li>
-        <li>Desenhos do suporte das roldanas</li>
-        <li>Links dos itens utilizados</li>
-        <li>Registro do processo aplicado na execução real</li>
-      </ul>
-    </section>
+      <div class="grid3">
+        <div class="card">
+          <div class="tag orange">PDF</div>
+          <h4>Organização para execução</h4>
+          <ul class="list">
+            <li><span class="check">✓</span> Lista de materiais</li>
+            <li><span class="check">✓</span> Plano de corte otimizado</li>
+            <li><span class="check">✓</span> Registro do processo aplicado na execução real</li>
+          </ul>
+        </div>
 
-    <section>
-      <h3>Vídeo e Guia Prático</h3>
-      <p>O vídeo explica a lógica do sistema.</p>
-      <p>O Guia Prático organiza a execução.</p>
-      <p>Um complementa o outro.</p>
-    </section>
+        <div class="card">
+          <div class="tag yellow">Desenhos</div>
+          <h4>Base e suporte das roldanas</h4>
+          <ul class="list">
+            <li><span class="check">✓</span> Desenhos da base</li>
+            <li><span class="check">✓</span> Desenhos do suporte das roldanas</li>
+          </ul>
+        </div>
 
-    <section class="columns">
-      <div class="column">
-        <h3>O que este material é</h3>
-        <ul>
-          <li>Material de apoio à execução</li>
-          <li>Organização do processo utilizado</li>
-          <li>Base para execução própria ou por terceiros</li>
-        </ul>
+        <div class="card">
+          <div class="tag orange">Links</div>
+          <h4>Itens utilizados</h4>
+          <ul class="list">
+            <li><span class="check">✓</span> Links dos itens utilizados</li>
+            <li><span class="check">✓</span> Referências do que foi comprado</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="column">
-        <h3>O que este material não é</h3>
-        <ul>
-          <li>Norma técnica</li>
-          <li>Manual profissional</li>
-          <li>Projeto executivo</li>
-          <li>Garantia de resultado</li>
-        </ul>
-      </div>
-    </section>
+  <!-- VÍDEO x GUIA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Conexão</div>
+      <div class="h3">Vídeo e Guia Prático</div>
 
-    <section class="columns">
-      <div class="column">
-        <h3>Para quem é</h3>
-        <ul>
-          <li>Quem já entende o básico do processo</li>
-          <li>Quem assistiu ou vai assistir ao vídeo</li>
-          <li>Quem quer viabilizar a execução</li>
-          <li>Quem pretende executar ou contratar um profissional local</li>
-        </ul>
-      </div>
+      <div class="grid2">
+        <div class="card">
+          <div class="tag">Vídeo</div>
+          <h4>Entendimento</h4>
+          <p class="muted">O vídeo explica a lógica do sistema.</p>
+        </div>
 
-      <div class="column">
-        <h3>Para quem não é</h3>
-        <ul>
-          <li>Iniciantes absolutos</li>
-          <li>Quem espera validação técnica</li>
-          <li>Quem busca instruções fechadas</li>
-          <li>Quem não assume responsabilidade pela execução</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h3>Execução local</h3>
-      <p>
-        Muitas pessoas entraram em contato querendo comprar a peça pronta.
-        Por questões de frete, isso não é viável.
-      </p>
-      <p>
-        O Guia Prático permite que a execução seja feita por profissionais locais,
-        respeitando a realidade de cada região.
-      </p>
-      <p>
-        Para quem está no <strong>Rio Grande do Norte ou estados vizinhos</strong>,
-        existe a possibilidade de execução direta de projetos como este.
-      </p>
-      <p>
-        O contato é feito de forma individual, conforme disponibilidade
-        e análise de viabilidade.
-      </p>
-    </section>
-
-    <section class="legal">
-      <h3>Aviso importante</h3>
-      <p>
-        Este material apresenta como a execução foi feita
-        neste caso específico.
-      </p>
-      <p>
-        Não se trata de projeto técnico, norma ou manual profissional.
-      </p>
-      <p>
-        Qualquer reprodução, adaptação ou uso das informações aqui contidas
-        é de responsabilidade exclusiva de quem executa.
-      </p>
-      <p>
-        A contratação de terceiros é uma decisão pessoal,
-        sem qualquer vínculo ou responsabilidade do autor.
-      </p>
-    </section>
-
-    <section>
-      <h3>Valor</h3>
-      <p>
-        Preço acessível.
-      </p>
-      <p>
-        O objetivo é viabilizar a execução com clareza,
-        seja de forma direta ou por meio de um profissional.
-      </p>
-
-      <!-- Substituir o link abaixo pelo checkout -->
-      <a class="cta" href="#" target="_blank">Acessar o Guia Prático</a>
-    </section>
-
-    <footer>
-      Aqui é <strong>Feito na Raça</strong>.<br>
-      Execução real. Processo real. Sem promessa.
-    </footer>
-
-  </div>
-
-</body>
-</html>
-
+        <div class="card">
+          <div class="tag">Guia Prático</div>
+          <h4>Execução
