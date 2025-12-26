@@ -14,13 +14,22 @@
       --bg-claro: #f7f7f7;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #ffffff;
       color: var(--preto);
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .wrapper {
@@ -32,9 +41,9 @@
     /* HERO */
     .hero {
       background: var(--laranja);
-      color: #fff;
+      color: #ffffff;
       text-align: center;
-      padding: 28px 16px 40px;
+      padding: 28px 16px 42px;
     }
 
     .hero img {
@@ -85,20 +94,31 @@
     }
 
     .btn-outline {
-      border: 2px solid #fff;
-      color: #fff;
+      border: 2px solid #ffffff;
+      color: #ffffff;
     }
 
     /* SECTIONS */
     section {
       padding: 40px 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eeeeee;
     }
 
     section h3 {
       color: var(--laranja);
       font-size: 1.4rem;
       margin-bottom: 14px;
+    }
+
+    section ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    section ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--cinza);
     }
 
     .columns {
@@ -112,17 +132,17 @@
       border: 1px solid #e5e5e5;
       border-radius: 8px;
       padding: 18px;
+      background: #ffffff;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
     }
 
     .card ul {
       list-style: none;
-      margin-top: 8px;
-    }
-
-    .card li {
-      font-size: 0.92rem;
-      color: var(--cinza);
-      margin-bottom: 6px;
+      padding-left: 0;
     }
 
     .card li::before {
@@ -136,14 +156,15 @@
       border-left: 4px solid var(--laranja);
       padding: 16px;
       border-radius: 6px;
-      margin-top: 14px;
+      margin-top: 16px;
       font-size: 0.95rem;
       color: var(--cinza);
     }
 
+    /* CTA FINAL */
     .cta-final {
       text-align: center;
-      padding: 40px 0;
+      padding: 42px 0;
     }
 
     .cta-final p {
@@ -155,6 +176,12 @@
       font-size: 0.8rem;
       color: var(--cinza);
       padding: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -222,7 +249,30 @@
       </div>
     </section>
 
-    <!-- CAMADA 2 -->
+    <!-- EXECUÇÃO LOCAL -->
+    <section>
+      <h3>Execução local</h3>
+
+      <div class="highlight-box">
+        <p>
+          Para quem é do <strong>Rio Grande do Norte ou estados vizinhos</strong>,
+          este projeto — e outros — podem ser executados diretamente por mim,
+          conforme análise de viabilidade.
+        </p>
+
+        <p style="margin-top:8px;">
+          👉 O contato é feito de forma direta pelo
+          <a href="https://www.instagram.com/feitonaraca/"
+             target="_blank"
+             rel="noopener noreferrer"
+             style="color:#F25C05; font-weight:bold;">
+            Instagram do Feito na Raça
+          </a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
     <section>
       <h3>Para quem é</h3>
 
@@ -258,9 +308,20 @@
     <!-- VÍDEOS -->
     <section>
       <h3>Vídeos no YouTube</h3>
+
       <ul>
-        <li>▶️ Processo de construção (disponível)</li>
-        <li>▶️ Lógica do sistema e pontos críticos (em breve)</li>
+        <li>
+          ▶️
+          <a href="https://youtu.be/EgzkWpj4hFo"
+             target="_blank"
+             rel="noopener noreferrer"
+             style="text-decoration: underline;">
+            Processo de construção (disponível)
+          </a>
+        </li>
+        <li style="opacity:0.7;">
+          ▶️ Lógica do sistema e pontos críticos (em breve)
+        </li>
       </ul>
     </section>
 
@@ -270,7 +331,9 @@
       <a class="btn btn-primary" href="https://pay.kiwify.com.br/AxirpDX" target="_blank">
         ADQUIRIR O GUIA PRÁTICO
       </a>
-      <p style="font-size:0.8rem; color:#777;">Download imediato • PDF organizado • Processo real</p>
+      <p style="font-size:0.8rem; color:#777;">
+        Download imediato • PDF organizado • Processo real
+      </p>
     </div>
 
   </main>
