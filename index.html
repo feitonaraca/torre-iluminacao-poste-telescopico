@@ -10,14 +10,15 @@
       --orange:#F25C05;
       --yellow:#FFD700;
       --black:#1C1C1C;
-      --gray:#555555;
+      --gray:#5b5b5b;
       --bg:#ffffff;
       --soft:#F6F6F6;
       --card:#ffffff;
-      --line:#EAEAEA;
-      --shadow: 0 10px 28px rgba(0,0,0,.08);
-      --radius:16px;
-      --max:1100px;
+      --line:rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.12);
+      --shadow2: 0 10px 26px rgba(0,0,0,.10);
+      --radius:14px;            /* menos “SaaS” */
+      --max:1120px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -30,31 +31,72 @@
     a{color:inherit}
 
     .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* HERO mais imponente e “industrial” */
     .hero{
-      background:var(--orange);
       color:#fff;
-      padding:54px 0 48px;
+      padding:56px 0 50px;
+      background:
+        radial-gradient(1200px 520px at 50% 0%, rgba(0,0,0,.22), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg, #F25C05 0%, #E85402 55%, #D84C00 100%);
+      position:relative;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,.18);
     }
+    /* “textura” sutil (sem ficar carnavalesco) */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.09) 0 10%, rgba(255,255,255,0) 10% 20%) ,
+        linear-gradient(225deg, rgba(0,0,0,.08) 0 10%, rgba(0,0,0,0) 10% 20%);
+      background-size: 42px 42px;
+      opacity:.10;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+
+    .brand{
+      display:flex;
+      justify-content:center;
+      margin-bottom:18px;
+      position:relative;
+      z-index:2;
+    }
+    .brand img{
+      width:140px;
+      height:auto;
+      image-rendering:auto;
+      opacity:.98;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.28));
+    }
+
     .hero h1{
-      font-size: clamp(28px, 3.2vw, 44px);
-      letter-spacing:-.02em;
+      font-size: clamp(28px, 3.2vw, 46px);
+      letter-spacing:-.03em;
       margin-bottom:10px;
-      font-weight:800;
+      font-weight:900;
       text-align:center;
+      position:relative;
+      z-index:2;
     }
     .hero h2{
-      font-size: clamp(16px, 1.5vw, 20px);
-      font-weight:500;
+      font-size: clamp(16px, 1.6vw, 20px);
+      font-weight:600;
       opacity:.95;
       text-align:center;
-      margin-bottom:22px;
+      margin-bottom:18px;
+      position:relative;
+      z-index:2;
     }
     .hero .sub{
-      max-width:860px;
+      max-width:900px;
       margin:0 auto;
       text-align:center;
       font-size: clamp(16px, 1.55vw, 18px);
       opacity:.98;
+      position:relative;
+      z-index:2;
     }
 
     .hero .pillrow{
@@ -63,14 +105,38 @@
       gap:10px;
       justify-content:center;
       flex-wrap:wrap;
+      position:relative;
+      z-index:2;
     }
     .pill{
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.14);
+      border:1px solid rgba(255,255,255,.20);
       padding:10px 14px;
       border-radius:999px;
-      font-size:14px;
+      font-size:13px;
       backdrop-filter: blur(6px);
+    }
+
+    /* Aviso curto (mantido como você quis) */
+    .note{
+      margin:22px auto 0;
+      max-width:940px;
+      position:relative;
+      z-index:2;
+      background:rgba(255,255,255,.96);
+      color:var(--black);
+      border-radius:18px;
+      padding:16px 18px;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow: 0 16px 34px rgba(0,0,0,.18);
+    }
+    .note strong{font-weight:950}
+    .note .muted{display:block;color:var(--gray);margin-top:6px;font-size:14px}
+    .note .bar{
+      position:absolute; left:0; top:0; bottom:0;
+      width:5px;
+      background:var(--orange);
+      border-radius:18px 0 0 18px;
     }
 
     .section{
@@ -78,22 +144,23 @@
       border-top:1px solid var(--line);
     }
     .section.alt{background:var(--soft)}
+
     .kicker{
       text-transform:uppercase;
-      letter-spacing:.12em;
+      letter-spacing:.14em;
       font-size:12px;
       color:var(--gray);
       margin-bottom:10px;
-      font-weight:700;
+      font-weight:800;
     }
     .h3{
       font-size: clamp(22px, 2.2vw, 30px);
-      letter-spacing:-.02em;
+      letter-spacing:-.03em;
       margin-bottom:14px;
-      font-weight:850;
+      font-weight:950;
     }
     .lead{
-      max-width:900px;
+      max-width:940px;
       font-size:16px;
       color:var(--black);
     }
@@ -120,15 +187,16 @@
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow2);
       padding:20px 18px;
     }
+
     .tag{
       display:inline-flex;
       align-items:center;
       gap:8px;
       font-size:12px;
-      font-weight:800;
+      font-weight:900;
       border-radius:999px;
       padding:7px 11px;
       border:1px solid var(--line);
@@ -138,19 +206,20 @@
     }
     .tag.orange{
       background:rgba(242,92,5,.10);
-      border-color:rgba(242,92,5,.18);
+      border-color:rgba(242,92,5,.22);
     }
     .tag.yellow{
       background:rgba(255,215,0,.18);
-      border-color:rgba(255,215,0,.22);
+      border-color:rgba(255,215,0,.26);
     }
 
     .card h4{
       font-size:18px;
       margin-bottom:10px;
-      font-weight:850;
-      letter-spacing:-.01em;
+      font-weight:950;
+      letter-spacing:-.02em;
     }
+
     .list{
       margin-top:10px;
       display:flex;
@@ -170,35 +239,22 @@
       width:18px;height:18px;flex:0 0 18px;
       border-radius:5px;
       background:rgba(242,92,5,.14);
-      border:1px solid rgba(242,92,5,.22);
+      border:1px solid rgba(242,92,5,.24);
       display:inline-flex;
       align-items:center;
       justify-content:center;
       margin-top:2px;
       color:var(--orange);
-      font-weight:900;
+      font-weight:950;
       font-size:13px;
     }
-
-    .note{
-      border-left:4px solid var(--orange);
-      padding:14px 16px;
-      background:#fff;
-      border-radius:12px;
-      border:1px solid var(--line);
-      box-shadow: 0 8px 22px rgba(0,0,0,.05);
-      max-width:920px;
-      margin:22px auto 0;
-    }
-    .note strong{font-weight:900}
-    .note p{margin:0;color:var(--black);font-size:14.5px}
-    .note .muted{display:block;margin-top:6px}
 
     .legal{
       background:#fff;
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:18px;
+      box-shadow:var(--shadow2);
     }
     .legal p{font-size:14.5px;color:var(--black)}
     .legal p + p{margin-top:10px}
@@ -215,18 +271,20 @@
       align-items:center;
       justify-content:center;
       padding:14px 18px;
-      border-radius:14px;
-      font-weight:900;
+      border-radius:12px;
+      font-weight:950;
       text-decoration:none;
       border:1px solid transparent;
       transition: transform .06s ease, opacity .2s ease;
     }
     .btn:active{transform: translateY(1px)}
     .btn.primary{
-      background:var(--orange);
+      background:var(--black);
       color:#fff;
-      box-shadow: 0 14px 34px rgba(242,92,5,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.24);
+      border-color: rgba(255,255,255,.0);
     }
+    .btn.primary:hover{opacity:.94}
     .btn.ghost{
       background:#fff;
       border-color:var(--line);
@@ -235,7 +293,7 @@
     .fine{
       font-size:12.5px;
       color:var(--gray);
-      max-width:720px;
+      max-width:760px;
     }
 
     footer{
@@ -250,7 +308,8 @@
     @media (max-width: 900px){
       .grid3{grid-template-columns: 1fr}
       .grid2{grid-template-columns: 1fr}
-      .hero{padding:44px 0 40px}
+      .hero{padding:48px 0 44px}
+      .brand img{width:130px}
     }
   </style>
 </head>
@@ -260,10 +319,17 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
+
+      <!-- LOGO (suba o arquivo como logo-fnr.png na raiz do repo) -->
+      <div class="brand">
+        <img src="logo-fnr.png" alt="Feito na Raça">
+      </div>
+
       <h1>Torre de Iluminação com Poste Telescópico</h1>
       <h2>Gigante e Compacto</h2>
 
-      <p class="sub"><strong>Entenda o sistema. Viabilize a execução.</strong><br>
+      <p class="sub">
+        <strong>Entenda o sistema. Viabilize a execução.</strong><br>
         O vídeo mostra como o sistema funciona.<br>
         O Guia Prático organiza as informações para execução, por você ou por um serralheiro de confiança.
       </p>
@@ -274,11 +340,13 @@
         <div class="pill">Execução local</div>
       </div>
 
+      <!-- Aviso curto (mantido) -->
       <div class="note">
-        <p><strong>A peça não é vendida pronta.</strong>
-          <span class="muted">Este material existe para viabilizar a execução local.</span>
-        </p>
+        <span class="bar"></span>
+        <strong>A peça não é vendida pronta.</strong>
+        <span class="muted">Este material existe para viabilizar a execução local.</span>
       </div>
+
     </div>
   </section>
 
@@ -351,4 +419,137 @@
 
         <div class="card">
           <div class="tag">Guia Prático</div>
-          <h4>Execução
+          <h4>Execução</h4>
+          <p class="muted">O Guia Prático organiza a execução. Um complementa o outro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É / NÃO É -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">Alinhamento</div>
+      <div class="h3">O que é e o que não é</div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="tag orange">É</div>
+          <h4>Este material é</h4>
+          <ul class="list">
+            <li><span class="check">✓</span> Material de apoio à execução</li>
+            <li><span class="check">✓</span> Organização do processo utilizado</li>
+            <li><span class="check">✓</span> Base para execução própria ou por terceiros</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="tag yellow">Não é</div>
+          <h4>Este material não é</h4>
+          <ul class="list">
+            <li><span class="check">✓</span> Norma técnica</li>
+            <li><span class="check">✓</span> Manual profissional</li>
+            <li><span class="check">✓</span> Projeto executivo</li>
+            <li><span class="check">✓</span> Garantia de resultado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É / NÃO É -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Filtro</div>
+      <div class="h3">Para quem é (e para quem não é)</div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="tag orange">Para quem é</div>
+          <ul class="list">
+            <li><span class="check">✓</span> Quem já entende o básico do processo</li>
+            <li><span class="check">✓</span> Quem assistiu ou vai assistir ao vídeo</li>
+            <li><span class="check">✓</span> Quem quer viabilizar a execução</li>
+            <li><span class="check">✓</span> Quem pretende executar ou contratar um profissional local</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="tag yellow">Para quem não é</div>
+          <ul class="list">
+            <li><span class="check">✓</span> Iniciantes absolutos</li>
+            <li><span class="check">✓</span> Quem espera validação técnica</li>
+            <li><span class="check">✓</span> Quem busca instruções fechadas</li>
+            <li><span class="check">✓</span> Quem não assume responsabilidade pela execução</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUÇÃO REGIONAL (QUADRO ESPECÍFICO) -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">Contato</div>
+      <div class="h3">Execução regional</div>
+
+      <div class="card">
+        <p class="muted">
+          Se você está no <strong>Rio Grande do Norte ou em estados vizinhos</strong>, existe a possibilidade de execução e entrega de peças prontas.
+        </p>
+        <div class="sp10"></div>
+        <p class="muted">
+          Isso vale para este projeto e para outros trabalhos semelhantes.
+          <strong>O contato é feito de forma direta via Instagram.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVISO IMPORTANTE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="kicker">Legal</div>
+      <div class="h3">Aviso importante</div>
+
+      <div class="legal">
+        <p>Este material apresenta como a execução foi feita neste caso específico.</p>
+        <p>Não se trata de projeto técnico, norma ou manual profissional.</p>
+        <p>Qualquer reprodução, adaptação ou uso das informações aqui contidas é de responsabilidade exclusiva de quem executa.</p>
+        <p>A contratação de terceiros é uma decisão pessoal, sem qualquer vínculo ou responsabilidade do autor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALOR + CTA -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker">Acesso</div>
+      <div class="h3">Valor</div>
+      <p class="lead muted">
+        Preço acessível. O objetivo é viabilizar a execução com clareza, seja de forma direta ou por meio de um profissional.
+      </p>
+
+      <div class="ctaRow">
+        <!-- Troque o href pelo link do checkout -->
+        <a class="btn primary" href="#" target="_blank" rel="noopener">Acessar o Guia Prático</a>
+        <!-- Opcional: link do vídeo -->
+        <a class="btn ghost" href="#" target="_blank" rel="noopener">Ver o vídeo do sistema</a>
+      </div>
+
+      <div class="sp18"></div>
+      <div class="fine">
+        Assim que você tiver o link do checkout e do vídeo, eu te digo exatamente onde colar nos botões.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Aqui é <strong>Feito na Raça</strong>.<br>
+      Execução real. Processo real. Sem promessa.
+    </div>
+  </footer>
+
+</body>
+</html>
